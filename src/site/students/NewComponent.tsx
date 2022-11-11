@@ -1,6 +1,7 @@
 import React, {useState} from "react"
 import {TopCarType} from "../../App";
 import {Button} from "../../components/Button";
+import {money} from "../../App"
 
 type NewComponentType = {
     topCars: Array<TopCarType>
@@ -36,35 +37,9 @@ export const NewComponent = (props: NewComponentType) => {
         console.log(a);
     }
     // debugger;
-    const [money, setMoney] = useState([
-        { banknote: 'DOLLAR', value: 100, number: ' a1234567890' },
-        { banknote: 'DOLLAR', value: 50, number: ' z1234567890' },
-        { banknote: 'RUB', value: 100, number: ' w1234567890' },
-        { banknote: 'DOLLAR', value: 100, number: ' e1234567890' },
-        { banknote: 'DOLLAR', value: 50, number: ' c1234567890' },
-        { banknote: 'RUB', value: 100, number: ' r1234567890' },
-        { banknote: 'DOLLAR', value: 50, number: ' x1234567890' },
-        { banknote: 'RUB', value: 50, number: ' v1234567890' },
-    ]);
 
-    const [filter, setFilter] = useState<FilterType>("ALL");
-    // setFilter(filter);
 
-    let currentMoney = money;
 
-    if (filter === "DOLLAR") {
-        currentMoney = money.filter((filteredMoney) => filteredMoney.banknote === "DOLLAR");
-    }
-    if (filter === "RUB") {
-        currentMoney = money.filter((filteredMoney) => filteredMoney.banknote === "RUB");
-    }
-
-    // let currentMoney = money.filter((filteredMoney) => filteredMoney.banknote === "RUB");
-
-    const filterClickHandler = (nameBtn: FilterType) => {
-        setFilter(nameBtn);
-        // console.log(nameBtn);
-    }
 
     return (
         <div>
@@ -104,34 +79,34 @@ export const NewComponent = (props: NewComponentType) => {
                 {/*<button onClick={foo1}>btn1</button>*/}
                 {/*<button onClick={() => foo2(100200)}>btn2</button>*/}
             </div>
-            <div>
-                <h3>Banknotes</h3>
-                <table id={"customers"}>
-                    <tr>
-                        <th>№</th>
-                        <th>banknotes</th>
-                        <th>value</th>
-                        <th>number</th>
-                    </tr>
-                    {currentMoney.map((el, index) => {
-                        return (
-                            <tr key={index}>
-                                <td>{index}</td>
-                                <td>{el.banknote}</td>
-                                <td>{el.value}</td>
-                                <td>{el.number}</td>
-                            </tr>
-                        );
-                    })}
-                </table>
-                <br/>
-                <br/>
-                <Button title={"ALL"} callBack={() => filterClickHandler("ALL")} />
-                <Button title={"RUB"} callBack={() => filterClickHandler("RUB")} />
-                <Button title={"DOLLAR"} callBack={() => filterClickHandler("DOLLAR")} />
-                <br/>
-                <br/>
-            </div>
+            {/*<div>*/}
+            {/*    <h3>Banknotes</h3>*/}
+            {/*    <table id={"customers"}>*/}
+            {/*        <tr>*/}
+            {/*            <th>№</th>*/}
+            {/*            <th>banknotes</th>*/}
+            {/*            <th>value</th>*/}
+            {/*            <th>number</th>*/}
+            {/*        </tr>*/}
+            {/*        {currentMoney.map((el, index) => {*/}
+            {/*            return (*/}
+            {/*                <tr key={index}>*/}
+            {/*                    <td>{index}</td>*/}
+            {/*                    <td>{el.banknote}</td>*/}
+            {/*                    <td>{el.value}</td>*/}
+            {/*                    <td>{el.number}</td>*/}
+            {/*                </tr>*/}
+            {/*            );*/}
+            {/*        })}*/}
+            {/*    </table>*/}
+            {/*    <br/>*/}
+            {/*    <br/>*/}
+            {/*    <Button title={"ALL"} callBack={() => filterClickHandler("ALL")} />*/}
+            {/*    <Button title={"RUB"} callBack={() => filterClickHandler("RUB")} />*/}
+            {/*    <Button title={"DOLLAR"} callBack={() => filterClickHandler("DOLLAR")} />*/}
+            {/*    <br/>*/}
+            {/*    <br/>*/}
+            {/*</div>*/}
         </div>
     );
 }

@@ -4,7 +4,7 @@ import { Body } from './site/Body';
 import {Header} from "./site/Header";
 import {Footer} from "./site/Footer";
 import {NewComponent} from "./site/students/NewComponent";
-import {Money} from "../../Money";
+import {Money} from "./site/money/Money";
 
 export type TopCarsType = Array<TopCarType>
 
@@ -28,7 +28,16 @@ export const topCars = [
     }
 ]
 
-export type FilterType = "ALL" | "RUB" | "DOLLAR"
+export const money = [
+    { banknote: 'DOLLAR', value: 100, number: ' a1234567890' },
+    { banknote: 'DOLLAR', value: 50, number: ' z1234567890' },
+    { banknote: 'RUB', value: 100, number: ' w1234567890' },
+    { banknote: 'DOLLAR', value: 100, number: ' e1234567890' },
+    { banknote: 'DOLLAR', value: 50, number: ' c1234567890' },
+    { banknote: 'RUB', value: 100, number: ' r1234567890' },
+    { banknote: 'DOLLAR', value: 50, number: ' x1234567890' },
+    { banknote: 'RUB', value: 50, number: ' v1234567890' },
+];
 
 function App() {
     return (
@@ -38,7 +47,7 @@ function App() {
                 <div className="container">
                     <Body titleForBody={"Title for body"} />
                     <NewComponent topCars={topCars} />
-                    {/*<Money money={currentMoney} />*/}
+                    <Money money={money} />
                 </div>
             </div>
             <Footer titleForFooter={"Footer"} />
