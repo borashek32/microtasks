@@ -17,7 +17,10 @@ export type FilterType = "ALL" | "RUB" | "DOLLAR"
 
 export const Money = (props: MoneyType) => {
     const [filter, setFilter] = useState<FilterType>("ALL");
-    // setFilter(filter);
+
+    const filterClickHandler = (nameBtn: FilterType) => {
+        setFilter(nameBtn);
+    }
 
     let currentMoney = money;
 
@@ -28,9 +31,7 @@ export const Money = (props: MoneyType) => {
         currentMoney = money.filter((filteredMoney) => filteredMoney.banknote === "RUB");
     }
 
-    const filterClickHandler = (nameBtn: FilterType) => {
-        setFilter(nameBtn);
-    }
+
     return (
         <div>
             <h3>Banknotes</h3>
